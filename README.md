@@ -1,7 +1,4 @@
 # Questions
 
-- implement Promise.all 
+- implement debounce in react ( Custom Hook )
 - React Life Cycle in function component
-- css box model
-- ways to center a div
-- implement debounce in react
