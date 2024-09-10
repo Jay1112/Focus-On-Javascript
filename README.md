@@ -1,4 +1,3 @@
 # Questions
 
-- implement debounce in react ( Custom Hook )
-- React Life Cycle in function component
+- React Life Cycle in function component (Later On)
