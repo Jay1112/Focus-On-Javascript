@@ -1,16 +1,16 @@
 // Arrow Function vs Normal Function
 
 // 1. Syntax 
-// function sqaure(num){
-//    return num * num ;
-// }
+function sqaure(num){
+   return num * num ;
+}
 
-// const sqaureArrow = (num) => {
-//     return num * num ;
-// }
+const sqaureArrow = (num) => {
+    return num * num ;
+}
 
-// // 2 - Implicit Return statement
-// const squareArrowImplicit = (num) => num * num ;
+// 2 - Implicit Return statement
+const squareArrowImplicit = (num) => num * num ;
 
 // 3 - Arguments
 function Arguments(){
