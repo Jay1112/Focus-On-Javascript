@@ -19,3 +19,6 @@
 
 - Javascript executes all execution contexts from Call-Stack.
 
+## when execution context is created with that global object created and also this variable is created. 
+## Global Memory space is a space which is not inside a function.
+
