@@ -11,3 +11,6 @@
 
 - Synchronous means it first completes the execution of current line and them it moves to the next line.
 - Single Threaded means it executes all the task in single thread which is a main thread.
+
+- Javascript is loosely typed language 
+- a language is called loosely typed language where variables do not have data type at the time of declaration.
