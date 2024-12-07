@@ -17,7 +17,7 @@ var b = 10;
 
 ## What is TDZ 
 
-- TDZ is period between declaration of a variable and assigned a value to variable.
+- TDZ is time since when let & const variables were hoisted and till they are initialized with the value.
 
 console.log(a); // ReferenceError : you can not access a before initialization
 let a = 10;
