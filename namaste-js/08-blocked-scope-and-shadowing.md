@@ -19,3 +19,11 @@ let a = 20
 ## Shadowing
 
 - a local variable has a same name as a variable which is in outer scope.
+
+example : 
+
+let a = 20
+{
+    let a = 30; // shadowing this variable
+    
+}
