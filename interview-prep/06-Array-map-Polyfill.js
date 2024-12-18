@@ -1,8 +1,8 @@
 // Polyfill for map
 Array.prototype.customMap = function (fn) {
   const transformArr = [];
-  this.forEach((item) => {
-    const result = fn(item);
+  this.forEach((item,index) => {
+    const result = fn(item,index,this);
     transformArr.push(result);
   });
   return transformArr;
