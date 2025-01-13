@@ -1,15 +1,15 @@
 /* this keyword */
-// "use strict"; 
+"use strict";
 
 // this in global space
-console.log("this in Global Space")
-console.log(this) // global Object, Browser => window and Node Js => Global
+console.log("this in Global Space");
+console.log(this); // global Object, Browser => window and Node Js => Global
 
 // this inside function
-function x(){
-    // here this value depends on strict and non-strict mode
-    // strict mode : undefined | non-strict mode : globalObject
-    console.log(this); // here this object is different from outsider this object
+function x() {
+  // here this value depends on strict and non-strict mode
+  // strict mode : undefined | non-strict mode : globalObject
+  console.log(this); // here this object is different from outsider this object
 }
 x();
 
@@ -22,17 +22,40 @@ x();
 
 // this inside a object's method
 const obj = {
-    name : 'Jay',
-    display : function(){
-        console.log(this.name);
-    }
-}
+  name: "Jay",
+  display: function () {
+    console.log(this.name);
+  },
+};
 obj.display();
 
 // call, apply and bind ( sharing methods )
 const obj2 = {
-    name : 'John DOE'
-}
-obj.display.call(obj2)
+  name: "John DOE",
+};
+obj.display.call(obj2);
 
 // this inside in arrow function
+// arrow function does not have its own this keyword.
+// it takes from its lexical environment where its enclosed.
+const obj3 = {
+  name: "Tunal",
+  y: () => {
+    console.log(this); // this would be same in strict and non-strict mode beacuse its takes this from global context.
+  },
+  z: function () {
+    const fn = () => {
+      console.log(this); // this would point to obj3 
+    };
+    fn();
+  },
+};
+obj3.y();
+obj3.z();
+
+// this keyword in DOM => references to HTML Element [in html file]
+
+const btn = document.querySelector('#btn');
+btn.addEventListener('click', (e) => {
+    alert(this) // window
+});
