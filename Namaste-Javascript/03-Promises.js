@@ -76,5 +76,9 @@ createOrder(cart)
     console.log("Wallet Balance : ", totalBalance);
   })
   .catch((err) => {
-    console.log(err.message);
+    return "error"
+  }).then((data)=>{
+    console.log("then : at the end ", data);
+  }).catch((error)=>{
+    console.log("catch : at the end", error)
   })
