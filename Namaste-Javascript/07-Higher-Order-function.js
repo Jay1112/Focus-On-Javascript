@@ -1,5 +1,5 @@
 // what is Higher order function ?
-// A function which takes another function as an argument or returns a function is called HOF.
+// A function which takes another function as an argument or returns a function as result is called HOF.
 
 function x() {
   console.log("function x");
