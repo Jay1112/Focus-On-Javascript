@@ -16,8 +16,8 @@
 // Event Loop is a process which is responsible for executing code, collecting and processing events and executing queued tasks.
 
 // Timers are registered into Web APIs Environment and once timer times out 
-// it would be pushed to Task Queue, once call stack becomes empty 
-// it would be pushed to call stack for execution
+// it would be pushed to Task Queue.
+// once call stack becomes empty , it would be pushed to call stack for execution
 
 // event listeneres are registered in memory and once user interacts, it pushed into callback-queue
 // and once callstack becomes empty event loop takes the function and pushes function to call stack.
