@@ -6,6 +6,6 @@
 
 // when you try to access a variable in TDZ it gives you an ReferenceError.
 
-const a ; // Syntax Error
-const b =100;
-b  = 1000; // Type Error
+// const a ; // Syntax Error
+// const b =100;
+// b  = 1000; // Type Error
