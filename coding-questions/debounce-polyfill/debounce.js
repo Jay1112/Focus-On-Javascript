@@ -4,6 +4,7 @@ const btn = document.querySelector('.btn');
 
 let totalClicks = 0;
 
+// debounce polyfill
 function debounce(fn, delay){
     let timerId ; 
     return function(...args){
