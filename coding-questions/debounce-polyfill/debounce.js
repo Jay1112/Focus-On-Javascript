@@ -1,34 +1,36 @@
+const btn = document.querySelector('.btn');
 const normal = document.querySelector('.normal');
 const debounced = document.querySelector('.debounced');
-const btn = document.querySelector('.btn');
 
-let totalClicks = 0;
+let normalClicks = 0;
+let debouncedClicks = 0;
 
-// debounce polyfill
-function debounce(fn, delay){
-    let timerId ; 
+function debounce(callback, delay){
+    let timerId ;
     return function(...args){
-        if(timerId){ clearTimeout(timerId) }
-
+        if(timerId) clearTimeout(timerId);
         timerId = setTimeout(()=>{
-            fn(...args);
+            callback(...args);
         }, delay)
     }
 }
 
-function updateCounts(element, count){
-    element.innerHTML = `Clicked : ${count}`
+normal.innerHTML = `Normal : ${normalClicks} times clicked!`
+debounced.innerHTML = `Debounced : ${debouncedClicks} times clicked!`
+
+function increaseNormalClicks(){
+    normalClicks++;
+    normal.innerHTML = `Normal : ${normalClicks} times clicked!`
 }
 
-const debouncedVersion = debounce(updateCounts, 500)
+function increaseDebounceClicks(){
+    debouncedClicks++;
+    debounced.innerHTML = `Debounced : ${debouncedClicks} times clicked!`
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-    updateCounts(normal, totalClicks);
-    updateCounts(debounced, totalClicks);
-})
+const debouncedVersion = debounce(increaseDebounceClicks, 1000);
 
-btn.addEventListener("click", () => {
-    totalClicks++;
-    updateCounts(normal, totalClicks);
-    debouncedVersion(debounced, totalClicks);
+btn.addEventListener("click",() => {
+    increaseNormalClicks();
+    debouncedVersion();
 })
