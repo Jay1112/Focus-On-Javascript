@@ -1,45 +1,48 @@
+const btn = document.querySelector('.btn');
 const normal = document.querySelector('.normal');
 const throttled = document.querySelector('.throttled');
-const btn = document.querySelector('.btn');
 
-let totalClicks = 0;
+let normalClicks = 0;
+let throttleClicks = 0;
 
-// throttle polyfill
-function throttle(fn, delay){
-    let last = 0 ; 
-    let timerId ;
+function throttle(callback, delay){
+    let last = 0;
+    let timerId ; 
+
     return function(...args){
-        let current = new Date().getTime();
+        const current = new Date().getTime();
         const diff = current - last;
 
-        if(diff >= delay){
-            fn(...args);
-            last = new Date().getTime();
-            return ;
+        if( diff >= delay ){
+            callback(...args);
+            last = current;
+            return;
         }else{
-            if(timerId) clearTimeout(timerId)
-            // handle last change
+            if(timerId) clearTimeout(timerId);
             timerId = setTimeout(() => {
-                fn(...args);
-                last = new Date().getTime();
+                callback(...args);
+                last = current;
             }, delay - diff)
         }
     }
 }
 
-function updateCounts(element, count){
-    element.innerHTML = `Clicked : ${count}`
+normal.innerHTML = `Normal : ${normalClicks} times clicked!`
+throttled.innerHTML = `Throttled : ${throttleClicks} times clicked!`
+
+function increaseNormalClicks(){
+    normalClicks++;
+    normal.innerHTML = `Normal : ${normalClicks} times clicked!`
 }
 
-const throttledVersion = throttle(updateCounts, 1000)
+function increaseThrottleClicks(){
+    throttleClicks++;
+    throttled.innerHTML = `Throttled : ${throttleClicks} times clicked!`
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-    updateCounts(normal, totalClicks);
-    updateCounts(throttled, totalClicks);
-})
+const throttledVersion = throttle(increaseThrottleClicks, 1000);
 
-btn.addEventListener("click", () => {
-    totalClicks++;
-    updateCounts(normal, totalClicks);
-    throttledVersion(throttled, totalClicks);
+btn.addEventListener("click",() => {
+    increaseNormalClicks();
+    throttledVersion();
 })
