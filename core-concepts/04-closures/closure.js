@@ -22,4 +22,10 @@ fn();
 // why closure ?
 // We can achieve encapsulation by using closure.
 
-// Closure Scope Chain
+// Difference Between closure and scope
+// when we use a function inside another function then the inner function is treated as closure
+// and it has refernces to outer env which can be used later.
+// closure has inner scope, outer scope and global scope as well.
+
+// scope means which variables and objects can be accessed in a section of a code.
+// scope : function, global, blocked, module scope
