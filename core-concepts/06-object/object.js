@@ -69,8 +69,8 @@ ref2.message = 'hello'
 console.log(ref1.message)
 
 // Que 8
-console.log({ a : '1' } == { a : '1'}); // false
-console.log({ a : '1' } === { a : '1'}); // false
+// console.log({ a : '1' } == { a : '1'}); // false
+// console.log({ a : '1' } === { a : '1'}); // false
 
 // Que 9
 let person =  { name : 'john' }
